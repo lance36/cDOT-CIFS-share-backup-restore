@@ -1,6 +1,7 @@
-﻿
-
-
+﻿# Usage:
+# Run as: .\mountAllVserverVolumes.ps1 -server <mgmt_ip> -user <mgmt_user> -password <mgmt_user_password> -vserver <vserver name> 
+#
+# Mount all volumes in the vserver, excluding volumes which cointain root in tha name (tipically vserver root volume)
 
 Param([parameter(Mandatory = $true)] [alias("s")] $server,
       [parameter(Mandatory = $true)] [alias("u")] $user,
