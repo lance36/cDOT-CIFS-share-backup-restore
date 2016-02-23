@@ -6,7 +6,8 @@
 Param([parameter(Mandatory = $true)] [alias("s")] $server,
       [parameter(Mandatory = $true)] [alias("u")] $user,
       [parameter(Mandatory = $true)] [alias("p")] $password,
-      [parameter(Mandatory = $true)] [alias("v")] $vserver)
+      [parameter(Mandatory = $true)] [alias("v")] $vserver,
+      [parameter(Mandatory = $true)] [alias("j")] $junction)
 
 Import-Module "C:\Program Files (x86)\Netapp\Data ONTAP PowerShell Toolkit\DataONTAP"
 
@@ -21,7 +22,7 @@ get-ncVol -Vserver $vserver| foreach {
    $myVol = $_.Name
      if (($myVol -ne $null) -and ($myVol -ne "") -and ($myVol -notlike "*root*") )
     {
-         Mount-NcVol -vservercontext  svm_nfs_02 -name $myVol -JunctionPath "/$myVol"
+         Mount-NcVol -vservercontext  svm_nfs_02 -name $myVol -JunctionPath "$junction$myVol"
  
     }
 }
