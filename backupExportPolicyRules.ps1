@@ -17,7 +17,7 @@ Param([parameter(Mandatory = $true)] [alias("s")] $server,
       [parameter(Mandatory = $true)] [alias("sp")] [Validateset("none","less","more")] $spit,
       [Validateset("false","true")] $csv = "false")
 
-Import-Module C:\Windows\system32\WindowsPowerShell\v1.0\Modules\DataOnTap
+Import-Module "C:\Program Files (x86)\Netapp\Data ONTAP PowerShell Toolkit\DataONTAP"
 
 $passwd = ConvertTo-SecureString $password -AsPlainText -Force
 $cred = New-Object -typename System.Management.Automation.PSCredential -ArgumentList $user, $passwd
