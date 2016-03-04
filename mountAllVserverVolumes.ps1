@@ -22,7 +22,7 @@ get-ncVol -Vserver $vserver| foreach {
    $myVol = $_.Name
      if (($myVol -ne $null) -and ($myVol -ne "") -and ($myVol -notlike "*root*") )
     {
-         Mount-NcVol -vservercontext  svm_nfs_02 -name $myVol -JunctionPath "$junction$myVol"
+         Mount-NcVol -vservercontext $vserver -name $myVol -JunctionPath "$junction$myVol"
  
     }
 }
